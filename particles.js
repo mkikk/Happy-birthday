@@ -2,32 +2,33 @@ class Particles {
 
     constructor(x,y, color, firework) {
         this.pos = createVector(x, y);
-        this.firework = firework;
+        this.firework = firework; // Firework or particle of explosion
         this.color = color;
         if (firework) {
             this.vel = createVector(random(-2,2),random(-23,-12));
             
         } 
         else {
+            // Particle will gradually fade away 
             this.lifespan = 255;
             this.vel = p5.Vector.random2D();
             this.vel.mult(random(random(-15,-4.5),random(4.5,15)));
         }
         this.acc = createVector(0,0);
     }
-    
+    // Check if particle has lost it's light
     done() {
         return this.lifespan < 0;
     }
-
+    // Apply gravity to movement
     applyForce(force) {
         this.acc.add(force);
     }
-  
+    
     update() {
         if (!this.firework) {
             this.vel.mult(0.95);
-            this.lifespan-= 3;
+            this.lifespan -= 3;
         }
         this.vel.add(this.acc);
         this.pos.add(this.vel);

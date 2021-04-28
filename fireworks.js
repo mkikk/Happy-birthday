@@ -8,6 +8,7 @@ class Firework {
             this.firework = new Particles(x, y, this.color, true);
         }
         else {
+            // Firework created with mouse press, create immidiate explosion
             this.firework = new Particles(x, y, this.color);
             this.explode();
         }
@@ -40,26 +41,26 @@ class Firework {
             this.particles[i].show();
         }
     }
-
+    // Create new particles to shoot around a Firework
     explode() {
-        if (this.color < 255/1.3)
+        if (this.color < 255/1.3) // Create an explosion with elements of the same color as Firewok
             for (let i = 0; i < 130; i++) {
                 let p = new Particles(this.firework.pos.x,this.firework.pos.y, this.color);
                 this.particles.push(p);
             }
-        else {
+        else { // Create an explosion with elements of different color
             for (let i = 0; i < 100; i++) {
                 let p = new Particles(this.firework.pos.x,this.firework.pos.y, random(255));
                 this.particles.push(p);
             }
         }
     }
-
+    // check if firework has extinguished
     done() {
         return (this.exploded && this.particles.length === 0);
     }
 
-    
+    // Mouse press event
     clicked() {
         this.explode();
      }
