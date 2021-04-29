@@ -6,3 +6,5 @@ Website concept is to wish happy birthday to gotoAndPlay.
   In the middle of the screen, there's the companys' logo and by hovering over it, a happy birthday wish shows up and the logo changes color.
   The whole creation progress was really exciting for me, because altering the small details had big impacts on the outcome and seeing it all come together was really fulfilling.
   All in all, it took me around 11 hours to create this project and around a quarter of the time went to learn about p5.js, because it was my first time to work with a particle system. 
+
+You can watch the website live at mkikk.github.io!
